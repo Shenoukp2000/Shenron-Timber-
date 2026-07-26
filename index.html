@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shenron Timber (Pvt) Ltd — Plantation Timber &amp; Biomass from Sabaragamuwa, Sri Lanka</title>
+<meta name="description" content="Shenron Timber (Pvt) Ltd — VAT-registered Sri Lankan plantation timber company. Acacia mangium and Eucalyptus biomass by the metric tonne, plus premium Mahogany and Eucalyptus grandis sawlogs from six estates in the Ratnapura hill country. Supplying South Indian importers and domestic fuelwood buyers.">
+<link rel="canonical" href="https://shenrontimber.com/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://shenrontimber.com/">
+<meta property="og:title" content="Shenron Timber (Pvt) Ltd — Plantation Timber &amp; Biomass, Sri Lanka">
+<meta property="og:description" content="Acacia and Eucalyptus biomass by the tonne, plus Mahogany and Eucalyptus grandis sawlogs, from six estates in Sabaragamuwa. Request a quote by email or WhatsApp.">
+<meta name="twitter:card" content="summary">
+
+<!-- ============================================================
+     SHENRON TIMBER — single-file marketing site (no build step)
+     Open directly in any browser.
+
+     CONTACT DETAILS: the CONTACT constant near the top of the <script>
+     block (email + WhatsApp number) is the single source of truth for
+     the RFQ form links. The visible contact cards are in the Contact
+     section. Update both places if details ever change.
+
+     PHOTOS: drop your image files into an "images/" folder beside this
+     file using the exact filenames noted in the "IMAGE:" comments in
+     the Gallery section. Each slot shows a labelled placeholder until
+     the real photo exists, then swaps in automatically.
+     ============================================================ -->
+
+<style>
+  /* ---------- Palette: wet-zone tropics ---------- */
+  :root {
+    --forest-deep:  #12291c;   /* canopy shadow */
+    --forest:       #1d4230;   /* rain-forest green */
+    --leaf:         #4a7c59;   /* mid leaf */
+    --leaf-soft:    #86a789;   /* misted leaf */
+    --earth:        #5b3f26;   /* laterite / earth brown */
+    --timber:       #b0793f;   /* fresh-sawn timber */
+    --timber-light: #d9b98c;   /* planed plank */
+    --cream:        #f5f0e4;   /* paper / sky haze */
+    --cream-warm:   #efe6d2;
+    --ink:          #21281f;
+    --gold:         #c99a3c;   /* jak-wood gold accent */
+    --error:        #b3402e;
+    --ok:           #2e7d4f;
+    --radius: 10px;
+    --shadow: 0 4px 18px rgba(18, 41, 28, 0.18);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, .display {
+    font-family: Georgia, "Times New Roman", serif;
+    line-height: 1.2;
+    font-weight: 700;
+  }
+
+  img { max-width: 100%; display: block; }
+
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+  section { padding: 64px 0; }
+  @media (min-width: 760px) { section { padding: 88px 0; } }
+
+  .eyebrow {
+    display: inline-block;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--leaf);
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .script-accent {
+    font-size: 0.95rem;
+    color: var(--leaf-soft);
+    letter-spacing: 0.04em;
+    margin-top: 6px;
+  }
+  .section-title { font-size: clamp(1.6rem, 4vw, 2.3rem); color: var(--forest-deep); margin-bottom: 14px; }
+  .section-lead  { max-width: 640px; color: #4c554a; margin-bottom: 32px; }
+
+  /* ---------- Header / nav ---------- */
+  header.site {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(18, 41, 28, 0.97);
+    color: var(--cream);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+  }
+  .nav-bar { display: flex; align-items: center; justify-content: space-between; padding: 12px 20px; max-width: 1100px; margin: 0 auto; }
+  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--cream); }
+  .brand-mark { width: 34px; height: 34px; flex: none; }
+  .brand-name { font-family: Georgia, serif; font-size: 1.05rem; font-weight: 700; letter-spacing: 0.02em; }
+  .brand-name small { display: block; font-family: inherit; font-size: 0.62rem; font-weight: 400; letter-spacing: 0.22em; text-transform: uppercase; color: var(--timber-light); }
+
+  nav.main { display: none; gap: 4px; align-items: center; }
+  nav.main a {
+    color: var(--cream); text-decoration: none; font-size: 0.85rem;
+    padding: 10px 12px; border-radius: 6px;
+  }
+  nav.main a:hover { background: rgba(245,240,228,0.12); }
+  nav.main a.cta {
+    background: var(--gold); color: var(--forest-deep); font-weight: 700; margin-left: 8px;
+  }
+  nav.main a.cta:hover { background: #dbb057; }
+
+  #nav-toggle { display: none; }
+  .hamburger {
+    display: flex; flex-direction: column; gap: 5px; cursor: pointer; padding: 12px; margin: -12px;
+  }
+  .hamburger span { width: 24px; height: 2px; background: var(--cream); border-radius: 2px; transition: transform .2s; }
+  @media (min-width: 880px) {
+    nav.main { display: flex; }
+    .hamburger { display: none; }
+    .mobile-menu { display: none !important; }
+  }
+  .mobile-menu { display: none; background: var(--forest-deep); border-top: 1px solid rgba(245,240,228,0.15); }
+  #nav-toggle:checked ~ .mobile-menu { display: block; }
+  .mobile-menu a {
+    display: block; padding: 15px 24px; color: var(--cream); text-decoration: none;
+    border-bottom: 1px solid rgba(245,240,228,0.08); font-size: 0.95rem;
+  }
+  .mobile-menu a.cta { background: var(--gold); color: var(--forest-deep); font-weight: 700; }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    background:
+      linear-gradient(180deg, rgba(18,41,28,0.92) 0%, rgba(29,66,48,0.88) 55%, rgba(18,41,28,0.96) 100%),
+      var(--forest);
+    color: var(--cream);
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-inner { padding: 72px 20px 0; max-width: 1100px; margin: 0 auto; text-align: center; position: relative; z-index: 2; }
+  @media (min-width: 760px) { .hero-inner { padding-top: 104px; } }
+  .hero h1 { font-size: clamp(2rem, 6vw, 3.4rem); margin: 14px 0 6px; }
+  .hero .tagline-scripts { font-size: clamp(0.95rem, 2.5vw, 1.15rem); color: var(--timber-light); margin-bottom: 18px; }
+  .hero p.sub { max-width: 620px; margin: 0 auto 30px; color: #d8dfd2; font-size: clamp(0.95rem, 2.5vw, 1.1rem); }
+  .hero-badges { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 30px; }
+  .hero-badges span {
+    font-size: 0.75rem; letter-spacing: 0.06em; padding: 7px 14px; border-radius: 100px;
+    border: 1px solid rgba(245,240,228,0.35); color: var(--cream);
+  }
+  .btn {
+    display: inline-block; text-decoration: none; font-weight: 700; border-radius: var(--radius);
+    padding: 16px 30px; font-size: 1rem; transition: transform .12s, box-shadow .12s;
+    text-align: center; min-height: 48px; cursor: pointer; border: none;
+  }
+  .btn:active { transform: translateY(1px); }
+  .btn-gold { background: var(--gold); color: var(--forest-deep); box-shadow: var(--shadow); }
+  .btn-gold:hover { background: #dbb057; }
+  .btn-outline { border: 2px solid var(--cream); color: var(--cream); background: transparent; }
+  .btn-outline:hover { background: rgba(245,240,228,0.12); }
+  .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-bottom: 26px; }
+  .ridgeline { display: block; width: 100%; height: auto; position: relative; z-index: 1; margin-top: 20px; }
+
+  /* ---------- About / estates ---------- */
+  .about-grid { display: grid; gap: 36px; align-items: start; }
+  @media (min-width: 880px) { .about-grid { grid-template-columns: 1.1fr 0.9fr; } }
+  .estate-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+  .estate-chips span {
+    background: var(--cream-warm); border: 1px solid var(--timber-light);
+    padding: 9px 16px; border-radius: 100px; font-size: 0.85rem; font-weight: 600; color: var(--earth);
+  }
+  .provenance {
+    background: var(--forest-deep); color: var(--cream); border-radius: var(--radius);
+    padding: 26px; box-shadow: var(--shadow);
+  }
+  .provenance h3 { color: var(--timber-light); font-size: 1.15rem; margin-bottom: 10px; }
+  .provenance p { font-size: 0.92rem; color: #cfd8ca; margin-bottom: 12px; }
+  .provenance ul { list-style: none; }
+  .provenance li { padding: 8px 0 8px 26px; position: relative; font-size: 0.92rem; border-top: 1px solid rgba(245,240,228,0.12); }
+  .provenance li::before { content: "✓"; position: absolute; left: 0; color: var(--gold); font-weight: 700; }
+
+  /* ---------- Products ---------- */
+  .products { background: var(--cream-warm); }
+  .product-cards { display: grid; gap: 26px; }
+  @media (min-width: 880px) { .product-cards { grid-template-columns: 1fr 1fr; } }
+  .product-card { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); background: #fff; display: flex; flex-direction: column; }
+  .product-card .band { padding: 22px 24px; color: var(--cream); }
+  .product-card.biomass .band { background: linear-gradient(135deg, var(--forest) 0%, var(--leaf) 100%); }
+  .product-card.sawn   .band { background: linear-gradient(135deg, var(--earth) 0%, var(--timber) 100%); }
+  .product-card .band .kicker { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.85; }
+  .product-card .band h3 { font-size: 1.45rem; margin-top: 4px; }
+  .product-card .band .script-accent { color: rgba(245,240,228,0.75); }
+  .product-body { padding: 24px; flex: 1; display: flex; flex-direction: column; gap: 16px; }
+  .species { border: 1px solid #e4dcc9; border-radius: 8px; padding: 14px 16px; }
+  .species h4 { font-size: 1rem; color: var(--forest-deep); }
+  .species h4 em { font-family: Georgia, serif; }
+  .species .figures { font-size: 0.85rem; color: var(--earth); font-weight: 600; }
+  .species p { font-size: 0.88rem; color: #5a6156; margin-top: 4px; }
+  .product-meta { margin-top: auto; display: flex; flex-wrap: wrap; gap: 8px; }
+  .product-meta span { font-size: 0.78rem; background: var(--cream); border-radius: 6px; padding: 6px 10px; color: var(--forest); font-weight: 600; }
+  .product-body .btn { align-self: flex-start; padding: 12px 22px; font-size: 0.9rem; }
+  .btn-forest { background: var(--forest); color: var(--cream); }
+  .btn-forest:hover { background: var(--leaf); }
+
+  /* ---------- Stats band ---------- */
+  .stats { background: var(--forest-deep); color: var(--cream); position: relative; overflow: hidden; }
+  .stats .wrap { position: relative; z-index: 2; }
+  .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px 16px; text-align: center; }
+  @media (min-width: 760px) { .stats-grid { grid-template-columns: repeat(4, 1fr); } }
+  .stat .num { font-family: Georgia, serif; font-size: clamp(1.9rem, 5vw, 2.9rem); font-weight: 700; color: var(--gold); }
+  .stat .num sup { font-size: 0.5em; }
+  .stat .label { font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; color: #b9c4b3; margin-top: 4px; }
+
+  /* ---------- Gallery ---------- */
+  .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  @media (min-width: 700px)  { .gallery-grid { grid-template-columns: repeat(3, 1fr); gap: 16px; } }
+  @media (min-width: 1000px) { .gallery-grid { grid-template-columns: repeat(4, 1fr); } }
+  .shot {
+    position: relative; aspect-ratio: 4 / 3; border-radius: 8px; overflow: hidden;
+    background:
+      repeating-linear-gradient(45deg, rgba(91,63,38,0.10) 0 12px, rgba(91,63,38,0.04) 12px 24px),
+      linear-gradient(160deg, var(--cream-warm), var(--timber-light));
+    border: 1px dashed var(--timber);
+  }
+  .shot.wide { grid-column: span 2; aspect-ratio: 8 / 3.05; }
+  .shot img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .shot .ph-label {
+    position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center;
+    justify-content: center; gap: 6px; text-align: center; padding: 12px; color: var(--earth);
+  }
+  .shot .ph-label svg { width: 30px; height: 30px; opacity: 0.65; }
+  .shot .ph-label figcaption { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.03em; line-height: 1.35; }
+
+  /* ---------- Logistics ---------- */
+  .logistics { background: var(--cream-warm); }
+  .logi-grid { display: grid; gap: 36px; align-items: center; }
+  @media (min-width: 880px) { .logi-grid { grid-template-columns: 1fr 1fr; } }
+  .corridor-map { width: 100%; height: auto; border-radius: var(--radius); box-shadow: var(--shadow); }
+  .logi-steps { list-style: none; counter-reset: step; }
+  .logi-steps li { position: relative; padding: 0 0 22px 54px; counter-increment: step; }
+  .logi-steps li::before {
+    content: counter(step); position: absolute; left: 0; top: 0;
+    width: 38px; height: 38px; border-radius: 50%; background: var(--forest); color: var(--cream);
+    display: flex; align-items: center; justify-content: center; font-weight: 700; font-family: Georgia, serif;
+  }
+  .logi-steps li:not(:last-child)::after {
+    content: ""; position: absolute; left: 18.5px; top: 42px; bottom: 4px; width: 1.5px; background: var(--leaf-soft);
+  }
+  .logi-steps h4 { font-size: 1rem; color: var(--forest-deep); }
+  .logi-steps p { font-size: 0.9rem; color: #5a6156; }
+  .terms-note {
+    margin-top: 18px; background: #fff; border-left: 4px solid var(--gold); border-radius: 6px;
+    padding: 14px 16px; font-size: 0.88rem; color: var(--earth);
+  }
+
+  /* ---------- RFQ form ---------- */
+  .rfq { background: linear-gradient(180deg, var(--forest-deep) 0%, var(--forest) 100%); color: var(--cream); }
+  .rfq .section-title { color: var(--cream); }
+  .rfq .eyebrow { color: var(--gold); }
+  .rfq .section-lead { color: #cfd8ca; }
+  .rfq-card {
+    background: var(--cream); color: var(--ink); border-radius: 14px; box-shadow: 0 10px 40px rgba(0,0,0,0.35);
+    padding: 26px 20px; max-width: 760px; margin: 0 auto;
+  }
+  @media (min-width: 700px) { .rfq-card { padding: 40px 44px; } }
+  .form-grid { display: grid; gap: 18px; }
+  @media (min-width: 700px) {
+    .form-grid { grid-template-columns: 1fr 1fr; }
+    .form-grid .full { grid-column: 1 / -1; }
+  }
+  .field label { display: block; font-size: 0.85rem; font-weight: 700; color: var(--forest-deep); margin-bottom: 6px; }
+  .field label .req { color: var(--error); }
+  .field .hint { font-weight: 400; color: #7a8175; font-size: 0.78rem; }
+  .field input[type=text], .field input[type=email], .field input[type=tel], .field input[type=number],
+  .field select, .field textarea {
+    width: 100%; padding: 13px 14px; font-size: 1rem; font-family: inherit;
+    border: 1.5px solid #cfc7b2; border-radius: 8px; background: #fff; color: var(--ink);
+    min-height: 48px;
+  }
+  .field textarea { min-height: 110px; resize: vertical; }
+  .field input:focus, .field select:focus, .field textarea:focus {
+    outline: 2px solid var(--leaf); outline-offset: 1px; border-color: var(--leaf);
+  }
+  .field.invalid input, .field.invalid select, .field.invalid .check-group, .field.invalid .seg {
+    border-color: var(--error);
+  }
+  .err-msg { display: none; color: var(--error); font-size: 0.8rem; margin-top: 5px; font-weight: 600; }
+  .field.invalid .err-msg { display: block; }
+
+  .check-group { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; border: 1.5px solid transparent; border-radius: 8px; }
+  .check-group label {
+    display: flex; align-items: center; gap: 9px; font-weight: 600; font-size: 0.88rem; color: var(--ink);
+    background: #fff; border: 1.5px solid #cfc7b2; border-radius: 8px; padding: 12px; cursor: pointer; min-height: 48px; margin: 0;
+  }
+  .check-group input { width: 18px; height: 18px; accent-color: var(--forest); flex: none; }
+  .check-group label:has(input:checked) { border-color: var(--leaf); background: #eef4ec; }
+
+  .vol-row { display: flex; gap: 10px; }
+  .vol-row input { flex: 1; }
+  .seg { display: flex; border: 1.5px solid #cfc7b2; border-radius: 8px; overflow: hidden; flex: none; }
+  .seg button {
+    border: none; background: #fff; padding: 0 14px; font-size: 0.85rem; font-weight: 700; color: #7a8175;
+    cursor: pointer; min-height: 48px; font-family: inherit;
+  }
+  .seg button + button { border-left: 1.5px solid #cfc7b2; }
+  .seg button.active { background: var(--forest); color: var(--cream); }
+
+  .radio-row { display: grid; gap: 8px; }
+  @media (min-width: 700px) { .radio-row { grid-template-columns: repeat(3, 1fr); } }
+  .radio-row label {
+    display: flex; align-items: center; gap: 9px; background: #fff; border: 1.5px solid #cfc7b2;
+    border-radius: 8px; padding: 12px; font-weight: 600; font-size: 0.88rem; cursor: pointer; min-height: 48px; margin: 0;
+  }
+  .radio-row input { width: 18px; height: 18px; accent-color: var(--forest); flex: none; }
+  .radio-row label:has(input:checked) { border-color: var(--leaf); background: #eef4ec; }
+
+  .rfq-submit { width: 100%; margin-top: 8px; font-size: 1.05rem; }
+
+  /* Confirmation state */
+  .rfq-confirm { display: none; text-align: center; }
+  .rfq-card.sent form { display: none; }
+  .rfq-card.sent .rfq-confirm { display: block; }
+  .rfq-confirm .tick {
+    width: 64px; height: 64px; border-radius: 50%; background: var(--ok); color: #fff;
+    display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin: 0 auto 16px;
+  }
+  .rfq-confirm h3 { color: var(--forest-deep); font-size: 1.4rem; margin-bottom: 8px; }
+  .rfq-confirm p { color: #5a6156; font-size: 0.95rem; max-width: 460px; margin: 0 auto 22px; }
+  .send-choices { display: grid; gap: 12px; max-width: 420px; margin: 0 auto 18px; }
+  @media (min-width: 700px) { .send-choices { grid-template-columns: 1fr 1fr; } }
+  .send-choices a { display: flex; align-items: center; justify-content: center; gap: 10px; }
+  .send-choices svg { width: 20px; height: 20px; flex: none; }
+  .btn-wa { background: #25d366; color: #073b1c; }
+  .btn-wa:hover { background: #3fdf78; }
+  .btn-mail { background: var(--forest); color: var(--cream); }
+  .btn-mail:hover { background: var(--leaf); }
+  .rfq-reset { background: none; border: none; color: var(--leaf); font-weight: 700; cursor: pointer; font-size: 0.9rem; text-decoration: underline; font-family: inherit; }
+
+  /* ---------- Contact ---------- */
+  .contact-grid { display: grid; gap: 16px; }
+  @media (min-width: 760px) { .contact-grid { grid-template-columns: repeat(2, 1fr); } }
+  .contact-card {
+    background: #fff; border: 1px solid #e4dcc9; border-radius: var(--radius); padding: 22px;
+    display: flex; gap: 16px; align-items: flex-start;
+  }
+  .contact-card .ico {
+    width: 44px; height: 44px; flex: none; border-radius: 10px; background: var(--cream-warm);
+    display: flex; align-items: center; justify-content: center; color: var(--forest);
+  }
+  .contact-card .ico svg { width: 22px; height: 22px; }
+  .contact-card h4 { font-size: 0.95rem; color: var(--forest-deep); }
+  .contact-card p { font-size: 0.9rem; color: #5a6156; word-break: break-word; }
+  .contact-card a { color: var(--forest); font-weight: 600; }
+
+  /* ---------- Footer ---------- */
+  footer.site {
+    background: var(--forest-deep); color: #b9c4b3; padding: 36px 20px 90px; text-align: center; font-size: 0.82rem;
+  }
+  footer.site .fbrand { color: var(--cream); font-family: Georgia, serif; font-size: 1.05rem; margin-bottom: 6px; }
+  footer.site .fscripts { color: var(--leaf-soft); margin-bottom: 14px; }
+
+  /* Sticky mobile RFQ bar */
+  .sticky-cta {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 40;
+    background: var(--gold); text-align: center; padding: 13px 16px;
+    font-weight: 700; color: var(--forest-deep); text-decoration: none; font-size: 1rem;
+    box-shadow: 0 -4px 16px rgba(0,0,0,0.2);
+  }
+  @media (min-width: 880px) { .sticky-cta { display: none; } footer.site { padding-bottom: 36px; } }
+
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+<!-- ==================== HEADER ==================== -->
+<header class="site">
+  <div class="nav-bar">
+    <a class="brand" href="#top">
+      <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+        <circle cx="20" cy="20" r="19" fill="#c99a3c"/>
+        <path d="M6 27 L14 15 L19 22 L26 11 L34 27 Z" fill="#12291c"/>
+        <rect x="18" y="27" width="4" height="7" rx="1" fill="#5b3f26"/>
+      </svg>
+      <span class="brand-name">Shenron Timber<small>Pvt Ltd · Sri Lanka</small></span>
+    </a>
+    <nav class="main" aria-label="Primary">
+      <a href="#about">Estates</a>
+      <a href="#products">Products</a>
+      <a href="#capacity">Capacity</a>
+      <a href="#logistics">Export</a>
+      <a href="#contact">Contact</a>
+      <a class="cta" href="#rfq">Request a Quote</a>
+    </nav>
+    <input type="checkbox" id="nav-toggle" aria-hidden="true">
+    <label class="hamburger" for="nav-toggle" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </label>
+  </div>
+  <div class="mobile-menu">
+    <a href="#about">Estates</a>
+    <a href="#products">Products</a>
+    <a href="#capacity">Capacity</a>
+    <a href="#logistics">Export</a>
+    <a href="#contact">Contact</a>
+    <a class="cta" href="#rfq">Request a Quote</a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ==================== HERO ==================== -->
+<section class="hero" style="padding:0">
+  <div class="hero-inner">
+    <span class="eyebrow" style="color:var(--gold)">Plantation timber · Sabaragamuwa, Sri Lanka</span>
+    <h1>Standing timber at scale,<br>from the wet-zone hills of Ratnapura</h1>
+    <p class="tagline-scripts" lang="si">සබරගමුවේ කඳුකරයෙන් <span lang="ta" style="margin-left:10px">சபரகமுவை மலைகளிலிருந்து</span></p>
+    <p class="sub">Shenron Timber (Pvt) Ltd is a VAT-registered plantation timber company holding harvesting rights across six estates — supplying Acacia and Eucalyptus biomass by the tonne, and premium Mahogany &amp; Eucalyptus grandis sawlogs, to South Indian importers and domestic buyers.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-gold" href="#rfq">Request a Quote</a>
+      <a class="btn btn-outline" href="#products">View Product Lines</a>
+    </div>
+    <div class="hero-badges">
+      <span>6 estates</span>
+      <span>~67,000 MT standing volume</span>
+      <span>~116,000 m³</span>
+      <span>VAT-registered</span>
+    </div>
+  </div>
+  <!-- Sabaragamuwa ridgeline motif -->
+  <svg class="ridgeline" viewBox="0 0 1440 190" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 190 L0 120 Q120 60 240 95 T480 75 Q560 40 660 78 T900 60 Q1020 20 1140 70 T1440 55 L1440 190 Z" fill="#1d4230" opacity="0.55"/>
+    <path d="M0 190 L0 145 Q160 95 320 120 T640 105 Q760 70 880 108 T1160 92 Q1300 60 1440 95 L1440 190 Z" fill="#2c5741" opacity="0.75"/>
+    <path d="M0 190 L0 165 Q200 130 400 150 T800 140 Q1000 110 1200 140 T1440 132 L1440 190 Z" fill="#f5f0e4"/>
+  </svg>
+</section>
+
+<!-- ==================== ABOUT / ESTATES ==================== -->
+<section id="about">
+  <div class="wrap">
+    <span class="eyebrow">About the company</span>
+    <h2 class="section-title">Six estates in the Sabaragamuwa hill country</h2>
+    <p class="script-accent" lang="si">අපගේ වතු හය <span lang="ta" style="margin-left:8px">எங்கள் ஆறு தோட்டங்கள்</span></p>
+    <div class="about-grid" style="margin-top:26px">
+      <div>
+        <p style="margin-bottom:16px">Shenron Timber operates across the wet-zone plantations of the Ratnapura district — high-rainfall hill country where Acacia mangium and Eucalyptus grow fast and dense. We purchase standing timber and hold the harvesting rights, managing felling, extraction, and haulage from estate to buyer.</p>
+        <p>Our resource base spans six estates under Hapugastenne Plantations PLC, a Browns Group company — giving buyers a single counterparty with plantation-scale volume and documented provenance.</p>
+        <div class="estate-chips" aria-label="Estates">
+          <span>Galbode</span>
+          <span>Hapugastenne Tea</span>
+          <span>Alupola</span>
+          <span>Madampe</span>
+          <span>Springwood</span>
+          <span>Hatherleigh</span>
+        </div>
+      </div>
+      <div class="provenance">
+        <h3>Documented provenance</h3>
+        <p>Timber rights purchased from Browns Group / Hapugastenne Plantations PLC — plantation-grown, not natural forest.</p>
+        <ul>
+          <li>VAT-registered Sri Lankan company</li>
+          <li>Harvesting rights to standing timber across six estates</li>
+          <li>Plantation species: Acacia, Eucalyptus, Mahogany</li>
+          <li>Volumes verified by estate enumeration</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== PRODUCTS ==================== -->
+<section id="products" class="products">
+  <div class="wrap">
+    <span class="eyebrow">Product lines</span>
+    <h2 class="section-title">Two product lines, one source</h2>
+    <p class="section-lead">Biomass sold by weight for boilers and fuelwood markets; premium sawlogs for timber merchants and mills. Ask for either — or both — in one RFQ.</p>
+    <div class="product-cards">
+
+      <!-- Line 1: biomass -->
+      <article class="product-card biomass">
+        <div class="band">
+          <div class="kicker">Line 01 · Sold by weight (MT / kg)</div>
+          <h3>Biomass &amp; Fuelwood</h3>
+          <p class="script-accent" lang="si">දර හා ජෛව ස්කන්ධ <span lang="ta" style="margin-left:8px">விறகு</span></p>
+        </div>
+        <div class="product-body">
+          <div class="species">
+            <h4><em>Acacia mangium</em></h4>
+            <div class="figures">19,129 standing trees</div>
+            <p>High-calorific fast-grown hardwood — the workhorse of boiler fuel and industrial firewood.</p>
+          </div>
+          <div class="species">
+            <h4><em>Eucalyptus torelliana</em></h4>
+            <div class="figures">6,943 standing trees</div>
+            <p>Dense-burning eucalypt, well suited to fuelwood and biomass chip supply.</p>
+          </div>
+          <div class="product-meta">
+            <span>~98,000 m³ biomass volume</span>
+            <span>Bulk supply by MT</span>
+            <span>Boiler &amp; kiln fuel</span>
+          </div>
+          <a class="btn btn-forest" href="#rfq">Quote biomass supply</a>
+        </div>
+      </article>
+
+      <!-- Line 2: sawn timber -->
+      <article class="product-card sawn">
+        <div class="band">
+          <div class="kicker">Line 02 · Premium sawlog product</div>
+          <h3>Sawn Timber &amp; Planks</h3>
+          <p class="script-accent" lang="si">ඉරූ ලී හා ලෑලි <span lang="ta" style="margin-left:8px">அறுத்த மரம்</span></p>
+        </div>
+        <div class="product-body">
+          <div class="species">
+            <h4>Mahogany <em>(Swietenia)</em></h4>
+            <div class="figures">326 trees · Madampe Estate</div>
+            <p>Estate-grown mahogany sawlogs — prized for furniture, joinery, and fine interior work.</p>
+          </div>
+          <div class="species">
+            <h4><em>Eucalyptus grandis</em></h4>
+            <div class="figures">250 standing trees</div>
+            <p>Straight, tall-boled grandis for structural sawn timber and planking.</p>
+          </div>
+          <div class="product-meta">
+            <span>Log or milled supply</span>
+            <span>Furniture &amp; joinery grade</span>
+            <span>Structural planking</span>
+          </div>
+          <a class="btn btn-forest" href="#rfq">Quote sawn timber</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==================== STATS / CAPACITY ==================== -->
+<section id="capacity" class="stats">
+  <div class="wrap">
+    <span class="eyebrow" style="color:var(--gold)">Resource base</span>
+    <h2 class="section-title" style="color:var(--cream)">Plantation-scale capacity</h2>
+    <div class="stats-grid" style="margin-top:36px">
+      <div class="stat"><div class="num"><span class="counter" data-target="6">0</span></div><div class="label">Estates</div></div>
+      <div class="stat"><div class="num"><span class="counter" data-target="26648">0</span></div><div class="label">Standing trees</div></div>
+      <div class="stat"><div class="num">~<span class="counter" data-target="67000">0</span></div><div class="label">Metric tonnes</div></div>
+      <div class="stat"><div class="num">~<span class="counter" data-target="116000">0</span></div><div class="label">m³ standing volume</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== GALLERY ==================== -->
+<section id="gallery">
+  <div class="wrap">
+    <span class="eyebrow">From the estates</span>
+    <h2 class="section-title">Timber on the ground</h2>
+    <p class="section-lead">Standing stock, harvest, and haulage across our six estates.</p>
+    <!-- HOW PHOTOS WORK: put your files in an images/ folder next to this
+         HTML file, using the exact filenames below. Each slot shows a
+         labelled placeholder until its photo exists. -->
+    <div class="gallery-grid">
+
+      <!-- IMAGE: mature acacia stand, Galbode estate → images/acacia-stand-galbode.jpg -->
+      <figure class="shot wide">
+        <span class="ph-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.5"/><path d="M3 17l5-5 4 4 3-3 6 6"/></svg><figcaption>Mature Acacia mangium stand — Galbode Estate</figcaption></span>
+        <img src="images/acacia-stand-galbode.jpg" alt="Mature Acacia mangium stand at Galbode Estate" loading="lazy" onerror="this.remove()">
+      </figure>
+
+      <!-- IMAGE: eucalyptus stand on hillside, Alupola estate → images/eucalyptus-alupola.jpg -->
+      <figure class="shot">
+        <span class="ph-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.5"/><path d="M3 17l5-5 4 4 3-3 6 6"/></svg><figcaption>Eucalyptus on the hillside — Alupola Estate</figcaption></span>
+        <img src="images/eucalyptus-alupola.jpg" alt="Eucalyptus stand on a hillside at Alupola Estate" loading="lazy" onerror="this.remove()">
+      </figure>
+
+      <!-- IMAGE: freshly felled logs at stump → images/felled-logs.jpg -->
+      <figure class="shot">
+        <span class="ph-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.5"/><path d="M3 17l5-5 4 4 3-3 6 6"/></svg><figcaption>Freshly felled logs at the stump</figcaption></span>
+        <img src="images/felled-logs.jpg" alt="Freshly felled timber logs at the stump" loading="lazy" onerror="this.remove()">
+      </figure>
+
+      <!-- IMAGE: log stacks at roadside depot → images/log-stacks-depot.jpg -->
+      <figure class="shot">
+        <span class="ph-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.5"/><path d="M3 17l5-5 4 4 3-3 6 6"/></svg><figcaption>Log stacks at the roadside depot</figcaption></span>
+        <img src="images/log-stacks-depot.jpg" alt="Stacked timber logs at a roadside depot" loading="lazy" onerror="this.remove()">
+      </figure>
+
+      <!-- IMAGE: milled planks / sawn timber → images/milled-planks.jpg -->
+      <figure class="shot">
+        <span class="ph-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.5"/><path d="M3 17l5-5 4 4 3-3 6 6"/></svg><figcaption>Milled planks, fresh off the saw</figcaption></span>
+        <img src="images/milled-planks.jpg" alt="Milled timber planks fresh off the saw" loading="lazy" onerror="this.remove()">
+      </figure>
+
+      <!-- IMAGE: mahogany log close-up, Madampe estate → images/mahogany-madampe.jpg -->
+      <figure class="shot">
+        <span class="ph-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.5"/><path d="M3 17l5-5 4 4 3-3 6 6"/></svg><figcaption>Mahogany — Madampe Estate</figcaption></span>
+        <img src="images/mahogany-madampe.jpg" alt="Mahogany log close-up at Madampe Estate" loading="lazy" onerror="this.remove()">
+      </figure>
+
+      <!-- IMAGE: estate landscape / tea and timber hills → images/estate-landscape.jpg -->
+      <figure class="shot">
+        <span class="ph-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.5"/><path d="M3 17l5-5 4 4 3-3 6 6"/></svg><figcaption>Estate landscape — Sabaragamuwa hills</figcaption></span>
+        <img src="images/estate-landscape.jpg" alt="Estate landscape in the Sabaragamuwa hills" loading="lazy" onerror="this.remove()">
+      </figure>
+
+      <!-- IMAGE: harvesting machinery at work → images/machinery.jpg -->
+      <figure class="shot">
+        <span class="ph-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.5"/><path d="M3 17l5-5 4 4 3-3 6 6"/></svg><figcaption>Harvesting machinery at work</figcaption></span>
+        <img src="images/machinery.jpg" alt="Timber harvesting machinery at work on the estate" loading="lazy" onerror="this.remove()">
+      </figure>
+
+      <!-- IMAGE: loaded timber truck leaving estate → images/timber-truck.jpg -->
+      <figure class="shot wide">
+        <span class="ph-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.5"/><path d="M3 17l5-5 4 4 3-3 6 6"/></svg><figcaption>Loaded timber truck leaving the estate</figcaption></span>
+        <img src="images/timber-truck.jpg" alt="Loaded timber truck leaving the estate" loading="lazy" onerror="this.remove()">
+      </figure>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==================== EXPORT LOGISTICS ==================== -->
+<section id="logistics" class="logistics">
+  <div class="wrap">
+    <span class="eyebrow">Export logistics</span>
+    <h2 class="section-title">Ratnapura to South India, door to port</h2>
+    <p class="section-lead">A short corridor across the Palk Strait puts our estates within easy reach of the Kochi–Perumbavoor and Erode–Coimbatore timber clusters.</p>
+    <div class="logi-grid">
+      <div>
+        <!-- Export corridor map: Sri Lanka → South India across the Palk Strait -->
+        <svg class="corridor-map" viewBox="0 0 520 420" role="img" aria-label="Map showing the export corridor from Ratnapura, Sri Lanka across the Palk Strait to Tuticorin, Kochi, Perumbavoor, Erode and Coimbatore in South India">
+          <rect width="520" height="420" fill="#bcd6d8"/>
+          <!-- South India landmass -->
+          <path d="M-10 -10 H330 C340 40 320 80 300 120 C285 155 270 185 240 215 C215 240 185 258 150 262 C100 268 40 250 -10 220 Z" fill="#dfe8cf" stroke="#9db08a" stroke-width="2"/>
+          <!-- Sri Lanka -->
+          <path d="M330 250 C355 240 380 248 393 270 C408 295 412 330 400 360 C388 390 360 405 332 398 C305 391 288 365 288 332 C288 300 305 260 330 250 Z" fill="#dfe8cf" stroke="#9db08a" stroke-width="2"/>
+          <!-- Palk Strait label -->
+          <text x="330" y="228" font-size="12" fill="#4e7376" font-style="italic" text-anchor="middle" font-family="Georgia, serif">Palk Strait</text>
+          <!-- Shipping route: Ratnapura → Colombo port → up the coast -->
+          <path d="M340 330 Q300 340 280 320" fill="none" stroke="#5b3f26" stroke-width="2.5" stroke-dasharray="1 6" stroke-linecap="round"/>
+          <path d="M280 320 Q230 290 218 240 Q210 205 232 180" fill="none" stroke="#c99a3c" stroke-width="3" stroke-dasharray="8 6" stroke-linecap="round"/>
+          <path d="M280 320 Q200 330 130 260 Q95 225 92 190" fill="none" stroke="#c99a3c" stroke-width="3" stroke-dasharray="8 6" stroke-linecap="round"/>
+          <!-- Arrowheads -->
+          <path d="M232 180 l-10 2 6 9 Z" fill="#c99a3c"/>
+          <path d="M92 190 l-3 10 10 -3 Z" fill="#c99a3c"/>
+          <!-- Origin: Ratnapura -->
+          <circle cx="340" cy="330" r="7" fill="#1d4230"/>
+          <circle cx="340" cy="330" r="12" fill="none" stroke="#1d4230" stroke-width="1.5" opacity="0.4"/>
+          <text x="356" y="335" font-size="13" font-weight="bold" fill="#12291c" font-family="Georgia, serif">Ratnapura</text>
+          <text x="356" y="349" font-size="10" fill="#4c554a">six estates</text>
+          <!-- Colombo port -->
+          <circle cx="280" cy="320" r="5" fill="#5b3f26"/>
+          <text x="272" y="308" font-size="11" fill="#5b3f26" text-anchor="end" font-weight="bold">Colombo Port</text>
+          <!-- Destinations -->
+          <circle cx="232" cy="180" r="5" fill="#b3402e"/>
+          <text x="243" y="177" font-size="11" fill="#5b3f26" font-weight="bold">Tuticorin</text>
+          <circle cx="248" cy="120" r="4" fill="#b3402e"/>
+          <text x="259" y="124" font-size="11" fill="#5b3f26" font-weight="bold">Erode · Coimbatore</text>
+          <path d="M232 180 Q242 150 248 120" fill="none" stroke="#b3402e" stroke-width="1.5" stroke-dasharray="2 5"/>
+          <circle cx="92" cy="190" r="5" fill="#b3402e"/>
+          <text x="103" y="187" font-size="11" fill="#5b3f26" font-weight="bold">Kochi · Perumbavoor</text>
+          <!-- Ship glyph mid-strait -->
+          <g transform="translate(160,286)">
+            <path d="M-14 6 L14 6 L9 13 L-9 13 Z" fill="#5b3f26"/>
+            <rect x="-5" y="-2" width="10" height="8" fill="#f5f0e4" stroke="#5b3f26"/>
+            <line x1="0" y1="-8" x2="0" y2="-2" stroke="#5b3f26" stroke-width="1.5"/>
+          </g>
+          <text x="14" y="30" font-size="11" fill="#4e7376" font-family="Georgia, serif" font-style="italic">South India</text>
+          <text x="404" y="392" font-size="11" fill="#4e7376" font-family="Georgia, serif" font-style="italic">Sri Lanka</text>
+        </svg>
+      </div>
+      <div>
+        <ol class="logi-steps">
+          <li>
+            <h4>Harvest &amp; enumeration</h4>
+            <p>Felling under estate supervision with tree-by-tree enumeration records for your consignment.</p>
+          </li>
+          <li>
+            <h4>Depot &amp; weighbridge</h4>
+            <p>Logs hauled to roadside depots; biomass weighed over certified weighbridges and sold by the metric tonne.</p>
+          </li>
+          <li>
+            <h4>Documentation</h4>
+            <p>VAT invoicing, transport permits, and phytosanitary / export paperwork prepared per consignment.</p>
+          </li>
+          <li>
+            <h4>Port &amp; shipping</h4>
+            <p>Containerised or break-bulk loading ex-Colombo for Tuticorin, Kochi, and the Kerala–Tamil Nadu timber clusters.</p>
+          </li>
+        </ol>
+        <div class="terms-note">
+          <strong>Delivery terms:</strong> Ex-depot is our standard basis. FOB Colombo and CIF to your port can be quoted on request — state your preference in the RFQ.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== RFQ ==================== -->
+<section id="rfq" class="rfq">
+  <div class="wrap">
+    <div style="text-align:center">
+      <span class="eyebrow">Request a Quote</span>
+      <h2 class="section-title">Tell us what you need</h2>
+      <p class="section-lead" style="margin-left:auto;margin-right:auto">Fill this in and choose Email or WhatsApp at the end — your message opens in your own app, pre-written and ready to send. We reply with pricing and availability.</p>
+    </div>
+
+    <div class="rfq-card" id="rfq-card">
+      <form id="rfq-form" novalidate>
+        <div class="form-grid">
+
+          <div class="field" id="f-name">
+            <label for="in-name">Your name <span class="req">*</span></label>
+            <input type="text" id="in-name" name="name" autocomplete="name" placeholder="e.g. Suresh Kumar">
+            <div class="err-msg">Please enter your name.</div>
+          </div>
+
+          <div class="field" id="f-company">
+            <label for="in-company">Company / buyer name <span class="hint">(optional)</span></label>
+            <input type="text" id="in-company" name="company" autocomplete="organization" placeholder="e.g. Kumar Timber Traders">
+          </div>
+
+          <div class="field" id="f-country">
+            <label for="in-country">Country</label>
+            <select id="in-country" name="country">
+              <option value="India" selected>India</option>
+              <option value="Sri Lanka">Sri Lanka</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div class="field" id="f-city">
+            <label for="in-city">City / town</label>
+            <input type="text" id="in-city" name="city" placeholder="e.g. Perumbavoor, Erode, Coimbatore…">
+          </div>
+
+          <div class="field" id="f-email">
+            <label for="in-email">Email <span class="req">*</span></label>
+            <input type="email" id="in-email" name="email" autocomplete="email" placeholder="you@company.com">
+            <div class="err-msg">Please enter a valid email address.</div>
+          </div>
+
+          <div class="field" id="f-phone">
+            <label for="in-phone">Phone / WhatsApp <span class="hint">(with country code)</span></label>
+            <input type="tel" id="in-phone" name="phone" autocomplete="tel" placeholder="+91 98765 43210">
+          </div>
+
+          <div class="field full" id="f-line">
+            <label for="in-line">Product line <span class="req">*</span></label>
+            <select id="in-line" name="line">
+              <option value="">— Select a product line —</option>
+              <option value="Biomass & Fuelwood">Biomass &amp; Fuelwood (by MT)</option>
+              <option value="Sawn Timber & Planks">Sawn Timber &amp; Planks</option>
+              <option value="Both lines">Both</option>
+            </select>
+            <div class="err-msg">Please choose a product line.</div>
+          </div>
+
+          <div class="field full" id="f-species">
+            <label>Species of interest <span class="hint">(tick all that apply)</span></label>
+            <div class="check-group">
+              <label><input type="checkbox" name="species" value="Acacia mangium"> Acacia mangium</label>
+              <label><input type="checkbox" name="species" value="Eucalyptus torelliana"> Eucalyptus torelliana</label>
+              <label><input type="checkbox" name="species" value="Mahogany"> Mahogany</label>
+              <label><input type="checkbox" name="species" value="Eucalyptus grandis"> Eucalyptus grandis</label>
+            </div>
+          </div>
+
+          <div class="field full" id="f-volume">
+            <label for="in-volume">Estimated volume required</label>
+            <div class="vol-row">
+              <input type="number" id="in-volume" name="volume" min="0" inputmode="decimal" placeholder="e.g. 500">
+              <div class="seg" id="unit-seg" role="group" aria-label="Volume unit">
+                <button type="button" class="active" data-unit="MT">MT</button>
+                <button type="button" data-unit="m³">m³</button>
+                <button type="button" data-unit="containers">Containers</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="field full" id="f-terms">
+            <label>Delivery terms preference <span class="hint">(Ex-depot is our default)</span></label>
+            <div class="radio-row">
+              <label><input type="radio" name="terms" value="Ex-depot" checked> Ex-depot</label>
+              <label><input type="radio" name="terms" value="FOB Colombo"> FOB</label>
+              <label><input type="radio" name="terms" value="CIF destination port"> CIF</label>
+            </div>
+          </div>
+
+          <div class="field" id="f-port">
+            <label for="in-port">Destination port / location</label>
+            <input type="text" id="in-port" name="port" placeholder="e.g. Tuticorin, Kochi…">
+          </div>
+
+          <div class="field" id="f-timeframe">
+            <label for="in-timeframe">Target timeframe</label>
+            <input type="text" id="in-timeframe" name="timeframe" placeholder="e.g. within 2 months">
+          </div>
+
+          <div class="field full" id="f-message">
+            <label for="in-message">Message / additional requirements</label>
+            <textarea id="in-message" name="message" placeholder="Girth/length specs, moisture limits, inspection visit, payment terms…"></textarea>
+          </div>
+
+          <div class="full">
+            <button type="submit" class="btn btn-gold rfq-submit">Prepare my RFQ →</button>
+          </div>
+        </div>
+      </form>
+
+      <!-- Confirmation state -->
+      <div class="rfq-confirm" id="rfq-confirm">
+        <div class="tick" aria-hidden="true">✓</div>
+        <h3>Your RFQ is ready to send</h3>
+        <p>Choose how you'd like to send it — your email app or WhatsApp will open with the full request already written. Just press send.</p>
+        <div class="send-choices">
+          <a class="btn btn-mail" id="send-email" href="#" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+            Send by Email
+          </a>
+          <a class="btn btn-wa" id="send-wa" href="#" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.2 14.2c-.2.6-1.2 1.2-1.7 1.2-.4.1-1 .1-1.6-.1a13 13 0 0 1-1.5-.5c-2.6-1.1-4.3-3.7-4.4-3.9-.1-.2-1-1.4-1-2.7 0-1.3.6-1.9.9-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c0 .2.1.3 0 .5l-.3.5-.5.5c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1.1 2.1 1.4 2.4 1.5.3.2.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.3 0 .2 0 .8-.2 1.3Z"/></svg>
+            Send by WhatsApp
+          </a>
+        </div>
+        <button class="rfq-reset" id="rfq-reset" type="button">← Edit or start a new request</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CONTACT ==================== -->
+<section id="contact">
+  <div class="wrap">
+    <span class="eyebrow">Contact</span>
+    <h2 class="section-title">Speak to us directly</h2>
+    <p class="section-lead">Buyers are welcome to inspect standing timber on the estates by appointment.</p>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z"/></svg></div>
+        <div>
+          <h4>Phone / WhatsApp</h4>
+          <p><a href="tel:+94777900281">+94 77 790 0281</a><br><span class="hint" style="font-size:0.78rem;color:#9aa094">WhatsApp available — English, සිංහල &amp; தமிழ் enquiries welcome</span></p>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></div>
+        <div>
+          <h4>Email</h4>
+          <p><a href="mailto:info@shenrontimber.com">info@shenrontimber.com</a></p>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div>
+          <h4>Office</h4>
+          <p>31 Layards Road, Colombo 05, Sri Lanka<br><span class="hint" style="font-size:0.78rem;color:#9aa094">Estates: Ratnapura District, Sabaragamuwa Province</span></p>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <div>
+          <h4>Hours</h4>
+          <p>Mon–Sat, 8:00–18:00 Sri Lanka time (IST +30 min)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="site">
+  <div class="fbrand">Shenron Timber (Pvt) Ltd</div>
+  <div class="fscripts" lang="si">සබරගමුවේ කඳුකරයෙන් · <span lang="ta">சபரகமுவை மலைகளிலிருந்து</span></div>
+  <p>VAT-registered plantation timber company · Timber rights via Browns Group / Hapugastenne Plantations PLC</p>
+  <p style="margin-top:8px">© <span id="year"></span> Shenron Timber (Pvt) Ltd. All rights reserved.</p>
+</footer>
+
+<a class="sticky-cta" href="#rfq">Request a Quote →</a>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ============================================================
+     ▸ CONTACT — single source of truth for the RFQ form links.
+       RFQ_EMAIL: the inbox that receives quote requests
+       WHATSAPP_NUMBER: digits only, with country code, no + or spaces
+     ============================================================ */
+  var CONTACT = {
+    RFQ_EMAIL: "info@shenrontimber.com",
+    WHATSAPP_NUMBER: "94777900281"
+  };
+
+  /* ---------- footer year ---------- */
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  /* ---------- close mobile menu on link tap ---------- */
+  var navToggle = document.getElementById("nav-toggle");
+  document.querySelectorAll(".mobile-menu a").forEach(function (a) {
+    a.addEventListener("click", function () { navToggle.checked = false; });
+  });
+
+  /* ---------- animated counters ---------- */
+  function animateCounter(el) {
+    var target = parseInt(el.dataset.target, 10);
+    var duration = 1600;
+    var start = null;
+    function frame(ts) {
+      if (!start) start = ts;
+      var p = Math.min((ts - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * eased).toLocaleString("en-US");
+      if (p < 1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+  var counters = document.querySelectorAll(".counter");
+  if ("IntersectionObserver" in window) {
+    var seen = new WeakSet();
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting && !seen.has(e.target)) {
+          seen.add(e.target);
+          animateCounter(e.target);
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    counters.forEach(function (c) { io.observe(c); });
+  } else {
+    counters.forEach(animateCounter);
+  }
+
+  /* ---------- volume unit toggle ---------- */
+  var unitSeg = document.getElementById("unit-seg");
+  var currentUnit = "MT";
+  unitSeg.addEventListener("click", function (e) {
+    var btn = e.target.closest("button");
+    if (!btn) return;
+    unitSeg.querySelectorAll("button").forEach(function (b) { b.classList.remove("active"); });
+    btn.classList.add("active");
+    currentUnit = btn.dataset.unit;
+  });
+
+  /* ---------- RFQ form ---------- */
+  var form = document.getElementById("rfq-form");
+  var card = document.getElementById("rfq-card");
+
+  function val(id) { return document.getElementById(id).value.trim(); }
+  function setInvalid(fieldId, invalid) {
+    document.getElementById(fieldId).classList.toggle("invalid", invalid);
+  }
+
+  function validate() {
+    var ok = true;
+    var name = val("in-name");
+    setInvalid("f-name", !name); if (!name) ok = false;
+
+    var email = val("in-email");
+    var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
+    setInvalid("f-email", !emailOk); if (!emailOk) ok = false;
+
+    var line = val("in-line");
+    setInvalid("f-line", !line); if (!line) ok = false;
+
+    if (!ok) {
+      var firstBad = document.querySelector(".field.invalid");
+      if (firstBad) firstBad.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+    return ok;
+  }
+
+  // clear error highlight as the user fixes fields
+  ["in-name", "in-email", "in-line"].forEach(function (id) {
+    document.getElementById(id).addEventListener("input", function () {
+      this.closest(".field").classList.remove("invalid");
+    });
+    document.getElementById(id).addEventListener("change", function () {
+      this.closest(".field").classList.remove("invalid");
+    });
+  });
+
+  function buildMessage() {
+    var species = Array.prototype.map.call(
+      document.querySelectorAll('input[name="species"]:checked'),
+      function (c) { return c.value; }
+    ).join(", ") || "Not specified";
+
+    var terms = document.querySelector('input[name="terms"]:checked').value;
+    var volume = val("in-volume");
+    var volumeStr = volume ? volume + " " + currentUnit : "Not specified";
+    var country = val("in-country");
+    var city = val("in-city");
+    var place = [city, country].filter(Boolean).join(", ") || "Not specified";
+
+    var lines = [
+      "REQUEST FOR QUOTE — Shenron Timber (Pvt) Ltd",
+      "----------------------------------------",
+      "Name: " + val("in-name"),
+      "Company: " + (val("in-company") || "Not specified"),
+      "Location: " + place,
+      "Email: " + val("in-email"),
+      "Phone/WhatsApp: " + (val("in-phone") || "Not specified"),
+      "----------------------------------------",
+      "Product line: " + val("in-line"),
+      "Species of interest: " + species,
+      "Estimated volume: " + volumeStr,
+      "Delivery terms: " + terms,
+      "Destination port/location: " + (val("in-port") || "Not specified"),
+      "Target timeframe: " + (val("in-timeframe") || "Not specified"),
+      "----------------------------------------"
+    ];
+    var msg = val("in-message");
+    if (msg) lines.push("Additional requirements:", msg, "----------------------------------------");
+    lines.push("Sent via the Shenron Timber website RFQ form.");
+    return lines.join("\n");
+  }
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (!validate()) return;
+
+    var body = buildMessage();
+    var subject = "RFQ — " + val("in-line") + " — " + (val("in-company") || val("in-name"));
+
+    document.getElementById("send-email").href =
+      "mailto:" + CONTACT.RFQ_EMAIL +
+      "?subject=" + encodeURIComponent(subject) +
+      "&body=" + encodeURIComponent(body);
+
+    document.getElementById("send-wa").href =
+      "https://wa.me/" + CONTACT.WHATSAPP_NUMBER +
+      "?text=" + encodeURIComponent(body);
+
+    card.classList.add("sent");
+    card.scrollIntoView({ behavior: "smooth", block: "center" });
+  });
+
+  document.getElementById("rfq-reset").addEventListener("click", function () {
+    card.classList.remove("sent");
+    card.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+})();
+</script>
+</body>
+</html>
