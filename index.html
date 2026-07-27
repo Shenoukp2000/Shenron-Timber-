@@ -6,6 +6,8 @@
 <title>Shenron Timber (Pvt) Ltd — Plantation Timber &amp; Biomass from Sabaragamuwa, Sri Lanka</title>
 <meta name="description" content="Shenron Timber (Pvt) Ltd — VAT-registered Sri Lankan plantation timber company supplying timber logs and firewood across Sri Lanka. Acacia mangium and Eucalyptus firewood by the metric tonne, plus Mahogany and Eucalyptus grandis sawlogs from six estates in the Ratnapura hill country. Export enquiries welcome.">
 <link rel="canonical" href="https://shenrontimber.com/">
+<!-- Favicon: simplified log-and-flame mark, legible at 16px -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%23f7f2e6'/%3E%3Ccircle cx='50' cy='50' r='45' fill='none' stroke='%23c99a3c' stroke-width='7'/%3E%3Ccircle cx='50' cy='51' r='35' fill='none' stroke='%2312291c' stroke-width='5'/%3E%3Cpath d='M50,72 C40,63 37,52 40,42 C42,35 47,32 46,25 C49,28 51,27 51,23 C52,16 50,12 51,6 C60,17 65,32 63,44 C61,57 55,63 50,72 Z' fill='%23c99a3c'/%3E%3C/svg%3E">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://shenrontimber.com/">
 <meta property="og:title" content="Shenron Timber (Pvt) Ltd — Plantation Timber &amp; Biomass, Sri Lanka">
@@ -98,9 +100,15 @@
   }
   .nav-bar { display: flex; align-items: center; justify-content: space-between; padding: 12px 20px; max-width: 1100px; margin: 0 auto; }
   .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--cream); }
-  .brand-mark { width: 34px; height: 34px; flex: none; }
-  .brand-name { font-family: Georgia, serif; font-size: 1.05rem; font-weight: 700; letter-spacing: 0.02em; }
-  .brand-name small { display: block; font-family: inherit; font-size: 0.62rem; font-weight: 400; letter-spacing: 0.22em; text-transform: uppercase; color: var(--timber-light); }
+  .brand-mark { width: 42px; height: 42px; flex: none; }
+  .brand-name {
+    font-family: Georgia, serif; font-size: 1.05rem; font-weight: 700;
+    letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.05;
+  }
+  .brand-name small {
+    display: block; font-family: inherit; font-size: 0.58rem; font-weight: 400;
+    letter-spacing: 0.34em; text-transform: uppercase; color: var(--gold);
+  }
 
   nav.main { display: none; gap: 4px; align-items: center; }
   nav.main a {
@@ -372,7 +380,12 @@
   footer.site {
     background: var(--forest-deep); color: #b9c4b3; padding: 36px 20px 90px; text-align: center; font-size: 0.82rem;
   }
-  footer.site .fbrand { color: var(--cream); font-family: Georgia, serif; font-size: 1.05rem; margin-bottom: 6px; }
+  footer.site .fmark { width: 62px; height: 62px; margin: 0 auto 14px; display: block; }
+  footer.site .fbrand {
+    color: var(--cream); font-family: Georgia, serif; font-size: 1.15rem;
+    text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 2px;
+  }
+  footer.site .fbrand span { display: block; font-size: 0.62rem; letter-spacing: 0.38em; color: var(--gold); margin-top: 3px; }
   footer.site .fscripts { color: var(--leaf-soft); margin-bottom: 14px; }
 
   /* Sticky mobile RFQ bar */
@@ -393,12 +406,21 @@
 <header class="site">
   <div class="nav-bar">
     <a class="brand" href="#top">
-      <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
-        <circle cx="20" cy="20" r="19" fill="#c99a3c"/>
-        <path d="M6 27 L14 15 L19 22 L26 11 L34 27 Z" fill="#12291c"/>
-        <rect x="18" y="27" width="4" height="7" rx="1" fill="#5b3f26"/>
+      <svg class="brand-mark" viewBox="0 0 100 100" aria-hidden="true">
+        <!-- log cross-section with rising flame -->
+        <circle cx="50" cy="50" r="47" fill="none" stroke="#c99a3c" stroke-width="3"/>
+        <circle cx="50" cy="50" r="43" fill="#f7f2e6"/>
+        <g fill="none" stroke="#12291c" opacity="0.95">
+          <circle cx="50" cy="50" r="43" stroke-width="5.5"/>
+          <circle cx="50" cy="51" r="35" stroke-width="2.6"/>
+          <circle cx="50" cy="52" r="28" stroke-width="2.6"/>
+          <circle cx="50" cy="53" r="21" stroke-width="2.6"/>
+          <circle cx="50" cy="54" r="14" stroke-width="2.6"/>
+        </g>
+        <path d="M50,67 C43,61 40,53 42,45 C43.2,39.5 47,36.5 46,30.5 C48,32.5 50,31.5 50.2,28.5 C50.6,22 50,18 51,13 C57,20.5 61,31.5 60,42 C59,52 54.5,59.5 50,67 Z" fill="#c99a3c"/>
+        <path d="M50,60 C46.5,56 45,51 46,46 C46.8,42.5 49,40.5 48.6,37 C50.5,39.5 52,38 52,35.5 C55,40 56.5,45 56,49.5 C55.4,54 53,57.5 50,60 Z" fill="#f0d896" opacity="0.65"/>
       </svg>
-      <span class="brand-name">Shenron Timber<small>Pvt Ltd · Sri Lanka</small></span>
+      <span class="brand-name">Shenron<small>Timber</small></span>
     </a>
     <nav class="main" aria-label="Primary">
       <a href="#about">Estates</a>
@@ -897,7 +919,20 @@
 
 <!-- ==================== FOOTER ==================== -->
 <footer class="site">
-  <div class="fbrand">Shenron Timber (Pvt) Ltd</div>
+  <svg class="fmark" viewBox="0 0 100 100" aria-hidden="true">
+    <circle cx="50" cy="50" r="47" fill="none" stroke="#c99a3c" stroke-width="3"/>
+    <circle cx="50" cy="50" r="43" fill="#f7f2e6"/>
+    <g fill="none" stroke="#12291c" opacity="0.95">
+      <circle cx="50" cy="50" r="43" stroke-width="5.5"/>
+      <circle cx="50" cy="51" r="35" stroke-width="2.6"/>
+      <circle cx="50" cy="52" r="28" stroke-width="2.6"/>
+      <circle cx="50" cy="53" r="21" stroke-width="2.6"/>
+      <circle cx="50" cy="54" r="14" stroke-width="2.6"/>
+    </g>
+    <path d="M50,67 C43,61 40,53 42,45 C43.2,39.5 47,36.5 46,30.5 C48,32.5 50,31.5 50.2,28.5 C50.6,22 50,18 51,13 C57,20.5 61,31.5 60,42 C59,52 54.5,59.5 50,67 Z" fill="#c99a3c"/>
+    <path d="M50,60 C46.5,56 45,51 46,46 C46.8,42.5 49,40.5 48.6,37 C50.5,39.5 52,38 52,35.5 C55,40 56.5,45 56,49.5 C55.4,54 53,57.5 50,60 Z" fill="#f0d896" opacity="0.65"/>
+  </svg>
+  <div class="fbrand">Shenron<span>Timber</span></div>
   <div class="fscripts" lang="si">සබරගමුවේ කඳුකරයෙන් · <span lang="ta">சபரகமுவை மலைகளிலிருந்து</span></div>
   <p>VAT-registered plantation timber company · Timber rights via Browns Group / Hapugastenne Plantations PLC</p>
   <p style="margin-top:8px">© <span id="year"></span> Shenron Timber (Pvt) Ltd. All rights reserved.</p>
