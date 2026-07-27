@@ -3,16 +3,77 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shenron Timber (Pvt) Ltd — Plantation Timber &amp; Biomass from Sabaragamuwa, Sri Lanka</title>
-<meta name="description" content="Shenron Timber (Pvt) Ltd — VAT-registered Sri Lankan plantation timber company supplying timber logs and firewood across Sri Lanka. Acacia mangium and Eucalyptus firewood by the metric tonne, plus Mahogany and Eucalyptus grandis sawlogs from six estates in the Ratnapura hill country. Export enquiries welcome.">
+<title>Timber &amp; Firewood Supplier Sri Lanka | Shenron Timber</title>
+<meta name="description" content="Buy plantation-grown firewood, biomass logs and timber logs from six Ratnapura estates. Island-wide delivery, transport permits, VAT invoices and export options.">
 <link rel="canonical" href="https://shenrontimber.com/">
 <!-- Favicon: simplified log-and-flame mark, legible at 16px -->
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%23f7f2e6'/%3E%3Ccircle cx='50' cy='50' r='45' fill='none' stroke='%23c99a3c' stroke-width='7'/%3E%3Ccircle cx='50' cy='51' r='35' fill='none' stroke='%2312291c' stroke-width='5'/%3E%3Cpath d='M50,72 C40,63 37,52 40,42 C42,35 47,32 46,25 C49,28 51,27 51,23 C52,16 50,12 51,6 C60,17 65,32 63,44 C61,57 55,63 50,72 Z' fill='%23c99a3c'/%3E%3C/svg%3E">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://shenrontimber.com/">
-<meta property="og:title" content="Shenron Timber (Pvt) Ltd — Plantation Timber &amp; Biomass, Sri Lanka">
+<meta property="og:title" content="Timber &amp; Firewood Supplier Sri Lanka | Shenron Timber">
 <meta property="og:description" content="Timber logs and firewood supplied across Sri Lanka from six estates in Sabaragamuwa. Acacia and Eucalyptus by the tonne, plus Mahogany and Eucalyptus grandis sawlogs. Request a quote by email or WhatsApp.">
 <meta name="twitter:card" content="summary">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://shenrontimber.com/#website",
+      "url": "https://shenrontimber.com/",
+      "name": "Shenron Timber (Pvt) Ltd",
+      "publisher": { "@id": "https://shenrontimber.com/#business" },
+      "inLanguage": "en"
+    },
+    {
+      "@type": ["LocalBusiness", "Organization"],
+      "@id": "https://shenrontimber.com/#business",
+      "name": "Shenron Timber (Pvt) Ltd",
+      "description": "VAT-registered Sri Lankan plantation timber company supplying firewood, biomass logs, timber logs and sawlogs from six estates in the Ratnapura District.",
+      "url": "https://shenrontimber.com/",
+      "email": "info@shenrontimber.com",
+      "telephone": "+94777900281",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "31 Layards Road",
+        "addressLocality": "Colombo 05",
+        "addressCountry": "LK"
+      },
+      "areaServed": [
+        { "@type": "Country", "name": "Sri Lanka" },
+        { "@type": "Country", "name": "India" }
+      ],
+      "openingHoursSpecification": [{
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+        "opens": "08:00",
+        "closes": "18:00"
+      }],
+      "makesOffer": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "Industrial firewood and biomass logs",
+            "description": "Acacia mangium and Eucalyptus torelliana firewood sold by the metric tonne for tea factories, bakeries, kilns and brick works.",
+            "material": "Acacia mangium, Eucalyptus torelliana"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "Timber logs and sawn timber",
+            "description": "Mahogany and Eucalyptus grandis sawlogs supplied as logs or milled to order for sawmills, timber merchants and furniture makers.",
+            "material": "Mahogany, Eucalyptus grandis"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 
 <!-- ============================================================
      SHENRON TIMBER — single-file marketing site (no build step)
@@ -151,7 +212,11 @@
   }
   .hero-inner { padding: 72px 20px 0; max-width: 1100px; margin: 0 auto; text-align: center; position: relative; z-index: 2; }
   @media (min-width: 760px) { .hero-inner { padding-top: 104px; } }
-  .hero h1 { font-size: clamp(2rem, 6vw, 3.4rem); margin: 14px 0 6px; }
+  .hero h1 { font-size: clamp(1.75rem, 5vw, 2.9rem); margin: 14px 0 10px; max-width: 900px; margin-left: auto; margin-right: auto; }
+  .brand-tagline {
+    font-family: Georgia, serif; font-style: italic; color: var(--leaf-soft);
+    font-size: clamp(0.95rem, 2.4vw, 1.2rem); margin-bottom: 4px;
+  }
   .hero .tagline-scripts { font-size: clamp(0.95rem, 2.5vw, 1.15rem); color: var(--timber-light); margin-bottom: 18px; }
   .hero p.sub { max-width: 620px; margin: 0 auto 30px; color: #d8dfd2; font-size: clamp(0.95rem, 2.5vw, 1.1rem); }
   .hero-badges { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 30px; }
@@ -451,7 +516,8 @@
 <section class="hero" style="padding:0">
   <div class="hero-inner">
     <span class="eyebrow" style="color:var(--gold)">Plantation timber · Sabaragamuwa, Sri Lanka</span>
-    <h1>Standing timber at scale,<br>from the wet-zone hills of Ratnapura</h1>
+    <h1>Plantation Timber, Firewood &amp; Biomass Supplier in Sri Lanka</h1>
+    <p class="brand-tagline">Standing timber at scale, from the wet-zone hills of Ratnapura</p>
     <p class="tagline-scripts" lang="si">සබරගමුවේ කඳුකරයෙන් <span lang="ta" style="margin-left:10px">சபரகமுவை மலைகளிலிருந்து</span></p>
     <p class="sub">Shenron Timber (Pvt) Ltd is a VAT-registered plantation timber company holding harvesting rights across six estates — supplying <strong>timber logs and firewood to buyers across Sri Lanka</strong>, from single loads to bulk contracts. Export enquiries welcome.</p>
     <div class="hero-ctas">
@@ -579,10 +645,12 @@
     <span class="eyebrow" style="color:var(--gold)">Resource base</span>
     <h2 class="section-title" style="color:var(--cream)">Plantation-scale capacity</h2>
     <div class="stats-grid" style="margin-top:36px">
-      <div class="stat"><div class="num"><span class="counter" data-target="6">0</span></div><div class="label">Estates</div></div>
-      <div class="stat"><div class="num"><span class="counter" data-target="26648">0</span></div><div class="label">Standing trees</div></div>
-      <div class="stat"><div class="num">~<span class="counter" data-target="67000">0</span></div><div class="label">Metric tonnes</div></div>
-      <div class="stat"><div class="num">~<span class="counter" data-target="116000">0</span></div><div class="label">m³ standing volume</div></div>
+      <!-- Real figures live in the HTML so crawlers and no-JS visitors see them;
+           the script animates up from zero only once it takes over. -->
+      <div class="stat"><div class="num"><span class="counter" data-target="6">6</span></div><div class="label">Estates</div></div>
+      <div class="stat"><div class="num"><span class="counter" data-target="26648">26,648</span></div><div class="label">Standing trees</div></div>
+      <div class="stat"><div class="num">~<span class="counter" data-target="67000">67,000</span></div><div class="label">Metric tonnes</div></div>
+      <div class="stat"><div class="num">~<span class="counter" data-target="116000">116,000</span></div><div class="label">m³ standing volume</div></div>
     </div>
   </div>
 </section>
@@ -908,7 +976,7 @@
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
         <div>
           <h4>Hours</h4>
-          <p>Mon–Sat, 8:00–18:00 Sri Lanka time (IST +30 min)</p>
+          <p>Mon–Sat, 8:00–18:00 Sri Lanka Standard Time (UTC+5:30)</p>
         </div>
       </div>
     </div>
