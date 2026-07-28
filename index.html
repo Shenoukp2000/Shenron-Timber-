@@ -489,13 +489,15 @@
   }
   html.intro-on #intro { display: flex; }
   html.intro-on, html.intro-on body { overflow: hidden; }
-  #intro video { width: 100%; height: 100%; object-fit: cover; }
+  #intro video { position: relative; z-index: 1; width: 100%; height: 100%; object-fit: cover; }
+  /* Sits behind the video — a branded holding frame for the moment
+     before the first frame paints, then covered by the footage. */
   #intro .intro-mark {
-    position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+    position: absolute; z-index: 0; top: 50%; left: 50%; transform: translate(-50%,-50%);
     width: 96px; height: 96px; opacity: 0.95; pointer-events: none;
   }
   #intro .skip {
-    position: absolute; bottom: 22px; right: 18px;
+    position: absolute; z-index: 2; bottom: 22px; right: 18px;
     background: rgba(18,41,28,0.72); color: var(--cream);
     border: 1px solid rgba(245,240,228,0.45); border-radius: 100px;
     padding: 12px 22px; font: 700 0.9rem/1 inherit; font-family: inherit;
