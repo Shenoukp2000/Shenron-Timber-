@@ -239,21 +239,22 @@ out = out.replace('<meta property="og:url" content="https://shenrontimber.com/">
 out = out.replace('"inLanguage": "en"', '"inLanguage": "si"', 1)
 # strip the search-console tag (belongs on one page only) and the site's intro block src
 out = re.sub(r'<meta name="google-site-verification"[^>]*>\n', '', out, count=1)
-# in-page anchors must stay inside /si/
-out = re.sub(r'href="#([a-z]+)"', r'href="/si/#\1"', out)
-out = out.replace('href="/articles/"', 'href="/articles/"')  # articles stay English for now
-out = out.replace('SRC = "assets/intro.mp4"', 'SRC = "/assets/intro.mp4"')
+# index.html uses paths relative to the site root; /si/ is one level down
+out = out.replace('href="assets/site.css"', 'href="../assets/site.css"')
+out = out.replace('href="articles/acacia-mangium-fuelwood/"', 'href="../articles/acacia-mangium-fuelwood/"')
+out = out.replace('href="articles/"', 'href="../articles/"')
+out = out.replace('href="si/"', 'href="../"')          # language link -> English
+out = out.replace('SRC = "assets/intro.mp4"', 'SRC = "../assets/intro.mp4"')
+out = out.replace('src="images/', 'src="../images/')
 
 # language switch points back to English from the Sinhala page
-out = out.replace('<a class="lang-link" href="/si/" hreflang="si" lang="si">\u0dc3\u0dd2\u0d82\u0dc4\u0dbd</a>',
-                  '<a class="lang-link" href="/" hreflang="en" lang="en">English</a>')
-out = out.replace('<a class="lang-link" href="/si/" hreflang="si" lang="si">\u0dc3\u0dd2\u0d82\u0dc4\u0dbd \u2014 Sinhala</a>',
-                  '<a class="lang-link" href="/" hreflang="en" lang="en">English</a>')
+out = re.sub(r'<a class="lang-link" href="\.\./" hreflang="si" lang="si">[^<]*</a>',
+             '<a class="lang-link" href="../" hreflang="en" lang="en">English</a>', out)
 out = out.replace('var LANG_PAGE = "en";                 // this file is the English page',
                   'var LANG_PAGE = "si";                 // this file is the Sinhala page')
 # on the Sinhala page the bar\'s English option is the link, Sinhala the button
-out = out.replace('<a href="/si/" hreflang="si" lang="si" data-lang="si">\u0dc3\u0dd2\u0d82\u0dc4\u0dbd</a>\n    <button type="button" data-lang="en">English</button>',
-                  '<button type="button" data-lang="si" lang="si">\u0dc3\u0dd2\u0d82\u0dc4\u0dbd</button>\n    <a href="/" hreflang="en" lang="en" data-lang="en">English</a>')
+out = re.sub(r'<a href="si/" hreflang="si" lang="si" data-lang="si">[^<]*</a>\s*<button type="button" data-lang="en">English</button>',
+             '<button type="button" data-lang="si" lang="si">\u0dc3\u0dd2\u0d82\u0dc4\u0dbd</button>\n    <a href="../" hreflang="en" lang="en" data-lang="en">English</a>', out)
 out = out.replace('if (v !== "si") { e.preventDefault(); bar.classList.remove("show"); }',
                   'if (v !== "en") { e.preventDefault(); bar.classList.remove("show"); }')
 
