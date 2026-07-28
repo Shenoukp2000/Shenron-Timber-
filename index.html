@@ -479,6 +479,33 @@
   footer.site .fbrand span { display: block; font-size: 0.62rem; letter-spacing: 0.38em; color: var(--gold); margin-top: 3px; }
   footer.site .fscripts { color: var(--leaf-soft); margin-bottom: 14px; }
 
+  /* ---------- Intro video overlay ----------
+     Only ever shown when assets/intro.mp4 loads fast enough. The site
+     underneath is fully rendered the whole time, so if anything at all
+     goes wrong the visitor simply sees the site. */
+  #intro {
+    position: fixed; inset: 0; z-index: 9999; background: var(--forest-deep);
+    display: none; align-items: center; justify-content: center; overflow: hidden;
+  }
+  html.intro-on #intro { display: flex; }
+  html.intro-on, html.intro-on body { overflow: hidden; }
+  #intro video { width: 100%; height: 100%; object-fit: cover; }
+  #intro .intro-mark {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+    width: 96px; height: 96px; opacity: 0.95; pointer-events: none;
+  }
+  #intro .skip {
+    position: absolute; bottom: 22px; right: 18px;
+    background: rgba(18,41,28,0.72); color: var(--cream);
+    border: 1px solid rgba(245,240,228,0.45); border-radius: 100px;
+    padding: 12px 22px; font: 700 0.9rem/1 inherit; font-family: inherit;
+    cursor: pointer; min-height: 48px; letter-spacing: 0.04em;
+  }
+  #intro .skip:hover { background: rgba(18,41,28,0.9); }
+  #intro .skip:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+  #intro.fade { opacity: 0; transition: opacity .45s ease; pointer-events: none; }
+  @media (prefers-reduced-motion: reduce) { #intro.fade { transition: none; } }
+
   /* Sticky mobile RFQ bar */
   .sticky-cta {
     position: fixed; bottom: 0; left: 0; right: 0; z-index: 40;
@@ -492,6 +519,91 @@
 </style>
 </head>
 <body>
+
+<!-- ==================== INTRO VIDEO (optional) ====================
+     To switch this on, drop a short clip at assets/intro.mp4 — ideally
+     under ~3 MB, 1920x1080 or smaller, no audio needed (it plays muted).
+     Optionally add assets/intro-poster.jpg as the first frame.
+
+     If that file is absent, or the connection is slow, or the visitor
+     has already seen it this session, the overlay never appears and the
+     site loads normally. Nothing here can block access to the page.
+     To remove the feature entirely, delete this block and the
+     #intro styles above.
+================================================================== -->
+<div id="intro" role="dialog" aria-label="Intro video" aria-modal="true">
+  <svg class="intro-mark" viewBox="0 0 100 100" aria-hidden="true">
+    <circle cx="50" cy="50" r="47" fill="none" stroke="#c99a3c" stroke-width="3"/>
+    <circle cx="50" cy="50" r="43" fill="#f7f2e6"/>
+    <g fill="none" stroke="#12291c" opacity="0.95">
+      <circle cx="50" cy="50" r="43" stroke-width="5.5"/>
+      <circle cx="50" cy="51" r="35" stroke-width="2.6"/>
+      <circle cx="50" cy="52" r="28" stroke-width="2.6"/>
+      <circle cx="50" cy="53" r="21" stroke-width="2.6"/>
+      <circle cx="50" cy="54" r="14" stroke-width="2.6"/>
+    </g>
+    <path d="M50,67 C43,61 40,53 42,45 C43.2,39.5 47,36.5 46,30.5 C48,32.5 50,31.5 50.2,28.5 C50.6,22 50,18 51,13 C57,20.5 61,31.5 60,42 C59,52 54.5,59.5 50,67 Z" fill="#c99a3c"/>
+  </svg>
+  <button class="skip" type="button">Skip intro →</button>
+</div>
+<script>
+(function () {
+  "use strict";
+  var SRC = "assets/intro.mp4";
+  var KEY = "shenron_intro_seen";
+  var MAX_PLAY_MS = 5200;   // hard cap — never hold the visitor longer
+  var LOAD_BUDGET_MS = 2500; // if it isn't ready by now, don't bother
+
+  var root = document.documentElement;
+  var box = document.getElementById("intro");
+  var done = false;
+
+  function dismiss() {
+    if (done) return;
+    done = true;
+    try { sessionStorage.setItem(KEY, "1"); } catch (e) {}
+    box.classList.add("fade");
+    setTimeout(function () {
+      root.classList.remove("intro-on");
+      box.parentNode && box.parentNode.removeChild(box);
+    }, 460);
+  }
+
+  // Reasons to skip entirely, before touching the network
+  try { if (sessionStorage.getItem(KEY)) return; } catch (e) { return; }
+  if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  if (location.hash) return;                     // arriving at a deep link
+  var c = navigator.connection;
+  if (c && (c.saveData || /(^|-)2g$/.test(c.effectiveType || ""))) return;
+
+  var v = document.createElement("video");
+  v.muted = true; v.defaultMuted = true; v.autoplay = true;
+  v.playsInline = true; v.setAttribute("playsinline", "");
+  v.setAttribute("aria-hidden", "true");
+  v.preload = "auto";
+  v.src = SRC;
+
+  var budget = setTimeout(function () { if (!root.classList.contains("intro-on")) v.src = ""; }, LOAD_BUDGET_MS);
+
+  v.addEventListener("canplaythrough", function () {
+    clearTimeout(budget);
+    if (done) return;
+    box.insertBefore(v, box.firstChild);
+    root.classList.add("intro-on");
+    var p = v.play();
+    if (p && p.catch) p.catch(dismiss);   // autoplay blocked → just show the site
+    setTimeout(dismiss, MAX_PLAY_MS);
+  }, { once: true });
+
+  v.addEventListener("ended", dismiss);
+  v.addEventListener("error", function () { clearTimeout(budget); dismiss(); });
+
+  box.querySelector(".skip").addEventListener("click", dismiss);
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" || e.key === "Enter" || e.key === " ") dismiss();
+  });
+})();
+</script>
 
 <!-- ==================== HEADER ==================== -->
 <header class="site">
