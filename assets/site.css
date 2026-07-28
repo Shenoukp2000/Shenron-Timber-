@@ -423,3 +423,29 @@
   @media (min-width: 880px) { .sticky-cta { display: none; } footer.site { padding-bottom: 36px; } }
 
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* ---------- Language switch ---------- */
+.lang-link {
+  border: 1px solid rgba(245,240,228,0.45); border-radius: 100px;
+  padding: 8px 14px !important; font-size: 0.8rem !important; letter-spacing: 0.02em;
+}
+.lang-link:hover { background: rgba(245,240,228,0.16) !important; }
+.mobile-menu .lang-link { border: none; border-radius: 0; padding: 15px 24px !important; font-size: 0.95rem !important; }
+
+/* First-visit language chooser — a strip, never a gate.
+   The page is fully readable behind it and it appears once. */
+#langbar {
+  display: none; background: var(--gold); color: var(--forest-deep);
+  padding: 12px 20px; text-align: center; font-size: 0.92rem;
+}
+#langbar.show { display: block; }
+#langbar .lb-inner { max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; justify-content: center; }
+#langbar strong { font-weight: 700; }
+#langbar a, #langbar button {
+  background: var(--forest-deep); color: var(--cream); border: none; border-radius: 100px;
+  padding: 10px 20px; font: 700 0.88rem/1 inherit; font-family: inherit;
+  text-decoration: none; cursor: pointer; min-height: 44px; display: inline-flex; align-items: center;
+}
+#langbar a:hover, #langbar button:hover { background: var(--forest); }
+#langbar button.lb-dismiss { background: transparent; color: var(--forest-deep); text-decoration: underline; padding: 10px 12px; }
+#langbar a:focus-visible, #langbar button:focus-visible { outline: 3px solid var(--forest-deep); outline-offset: 2px; }
