@@ -51,26 +51,30 @@
         "opens": "08:00",
         "closes": "18:00"
       }],
-      "makesOffer": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Product",
-            "name": "Industrial firewood and biomass logs",
-            "description": "Acacia mangium and Eucalyptus torelliana firewood sold by the metric tonne for tea factories, bakeries, kilns and brick works.",
-            "material": "Acacia mangium, Eucalyptus torelliana"
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Timber and firewood supply",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Industrial firewood and biomass log supply",
+              "serviceType": "Firewood and biomass supply",
+              "description": "Acacia mangium and Eucalyptus torelliana firewood sold by the metric tonne for tea factories, bakeries, kilns and brick works. Island-wide delivery or collection ex-depot."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Timber log and sawn timber supply",
+              "serviceType": "Timber and sawlog supply",
+              "description": "Mahogany and Eucalyptus grandis sawlogs supplied as logs or milled to order for sawmills, timber merchants and furniture makers."
+            }
           }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Product",
-            "name": "Timber logs and sawn timber",
-            "description": "Mahogany and Eucalyptus grandis sawlogs supplied as logs or milled to order for sawmills, timber merchants and furniture makers.",
-            "material": "Mahogany, Eucalyptus grandis"
-          }
-        }
-      ]
+        ]
+      }
     }
   ]
 }
