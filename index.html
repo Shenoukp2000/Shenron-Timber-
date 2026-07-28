@@ -404,11 +404,21 @@
   .radio-row label:has(input:checked) { border-color: var(--leaf); background: #eef4ec; }
 
   .rfq-submit { width: 100%; margin-top: 8px; font-size: 1.05rem; }
+  .rfq-submit[disabled] { opacity: 0.65; cursor: progress; }
+  .send-note { font-size: 0.8rem; color: #7a8175; text-align: center; margin-top: 10px; }
+  .send-note.err { color: var(--error); font-weight: 600; }
+  /* honeypot — off-screen, never shown to people */
+  .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 
   /* Confirmation state */
   .rfq-confirm { display: none; text-align: center; }
-  .rfq-card.sent form { display: none; }
-  .rfq-card.sent .rfq-confirm { display: block; }
+  .rfq-card.sent-auto form, .rfq-card.sent-manual form { display: none; }
+  .rfq-card.sent-auto .rfq-confirm, .rfq-card.sent-manual .rfq-confirm { display: block; }
+  .rfq-confirm .state-auto, .rfq-confirm .state-manual { display: none; }
+  .rfq-card.sent-auto .rfq-confirm .state-auto { display: block; }
+  .rfq-card.sent-manual .rfq-confirm .state-manual { display: block; }
+  .rfq-card.sent-auto .send-choices { grid-template-columns: 1fr; max-width: 300px; }
+  .rfq-card.sent-auto #send-email { display: none; }
   .rfq-confirm .tick {
     width: 64px; height: 64px; border-radius: 50%; background: var(--ok); color: #fff;
     display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin: 0 auto 16px;
@@ -817,7 +827,7 @@
     <div style="text-align:center">
       <span class="eyebrow">Request a Quote</span>
       <h2 class="section-title">Tell us what you need</h2>
-      <p class="section-lead" style="margin-left:auto;margin-right:auto">Fill this in and choose Email or WhatsApp at the end — your message opens in your own app, pre-written and ready to send. We reply with pricing and availability.</p>
+      <p class="section-lead" style="margin-left:auto;margin-right:auto">Tell us what you need and send it straight from this page — no email app required. We reply with pricing and availability, usually within one working day.</p>
     </div>
 
     <div class="rfq-card" id="rfq-card">
@@ -917,8 +927,15 @@
             <textarea id="in-message" name="message" placeholder="Girth/length specs, moisture limits, inspection visit, payment terms…"></textarea>
           </div>
 
+          <!-- honeypot: hidden from people, filled in by bots -->
+          <div class="hp" aria-hidden="true">
+            <label for="in-website">Website</label>
+            <input type="text" id="in-website" name="website" tabindex="-1" autocomplete="off">
+          </div>
+
           <div class="full">
-            <button type="submit" class="btn btn-gold rfq-submit">Prepare my RFQ →</button>
+            <button type="submit" class="btn btn-gold rfq-submit" id="rfq-send">Send my request →</button>
+            <p class="send-note" id="send-note">We reply with pricing and availability, usually within one working day.</p>
           </div>
         </div>
       </form>
@@ -926,8 +943,19 @@
       <!-- Confirmation state -->
       <div class="rfq-confirm" id="rfq-confirm">
         <div class="tick" aria-hidden="true">✓</div>
-        <h3>Your RFQ is ready to send</h3>
-        <p>Choose how you'd like to send it — your email app or WhatsApp will open with the full request already written. Just press send.</p>
+
+        <!-- shown when the request was delivered automatically -->
+        <div class="state-auto">
+          <h3>Thank you — we've got your request</h3>
+          <p>It's been sent straight to our team. We'll reply to <strong id="echo-email">your email</strong> with pricing and availability, usually within one working day. Prefer to talk now? Message us on WhatsApp.</p>
+        </div>
+
+        <!-- shown when automatic sending is unavailable -->
+        <div class="state-manual">
+          <h3>Your request is ready to send</h3>
+          <p>Choose how you'd like to send it — your email app or WhatsApp will open with the full request already written. Just press send.</p>
+        </div>
+
         <div class="send-choices">
           <a class="btn btn-mail" id="send-email" href="#" rel="noopener">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
@@ -1019,7 +1047,15 @@
      ============================================================ */
   var CONTACT = {
     RFQ_EMAIL: "info@shenrontimber.com",
-    WHATSAPP_NUMBER: "94777900281"
+    WHATSAPP_NUMBER: "94777900281",
+
+    /* ▸ ACTION REQUIRED to make the form send automatically.
+       Get a free key at https://web3forms.com — enter info@shenrontimber.com,
+       and they email you an access key. Paste it below, replacing the
+       placeholder. No account or password needed.
+       Until this is set, the form falls back to the manual
+       email / WhatsApp buttons and still works. */
+    FORM_ACCESS_KEY: "[[WEB3FORMS_ACCESS_KEY]]"
   };
 
   /* ---------- footer year ---------- */
@@ -1147,28 +1183,73 @@
     return lines.join("\n");
   }
 
+  var sendBtn = document.getElementById("rfq-send");
+  var sendNote = document.getElementById("send-note");
+  var autoSendEnabled = CONTACT.FORM_ACCESS_KEY.indexOf("[[") === -1 && CONTACT.FORM_ACCESS_KEY.length > 10;
+
+  function finish(mode) {
+    card.classList.remove("sent-auto", "sent-manual");
+    card.classList.add(mode === "auto" ? "sent-auto" : "sent-manual");
+    card.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
+
   form.addEventListener("submit", function (e) {
     e.preventDefault();
     if (!validate()) return;
+    // silently drop bot submissions that filled the hidden field
+    if (document.getElementById("in-website").value) return;
 
     var body = buildMessage();
     var subject = "RFQ — " + val("in-line") + " — " + (val("in-company") || val("in-name"));
 
+    // always prepare the manual routes, so they work as a fallback
     document.getElementById("send-email").href =
       "mailto:" + CONTACT.RFQ_EMAIL +
       "?subject=" + encodeURIComponent(subject) +
       "&body=" + encodeURIComponent(body);
-
     document.getElementById("send-wa").href =
       "https://wa.me/" + CONTACT.WHATSAPP_NUMBER +
       "?text=" + encodeURIComponent(body);
+    document.getElementById("echo-email").textContent = val("in-email");
 
-    card.classList.add("sent");
-    card.scrollIntoView({ behavior: "smooth", block: "center" });
+    if (!autoSendEnabled) { finish("manual"); return; }
+
+    sendBtn.disabled = true;
+    sendBtn.textContent = "Sending…";
+    sendNote.classList.remove("err");
+    sendNote.textContent = "Sending your request…";
+
+    fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify({
+        access_key: CONTACT.FORM_ACCESS_KEY,
+        subject: subject,
+        from_name: "Shenron Timber website",
+        replyto: val("in-email"),
+        name: val("in-name"),
+        email: val("in-email"),
+        message: body
+      })
+    })
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        if (data && data.success) { finish("auto"); }
+        else { throw new Error((data && data.message) || "send failed"); }
+      })
+      .catch(function () {
+        // network down, key wrong, or quota hit — hand the buyer the manual routes
+        finish("manual");
+      })
+      .then(function () {
+        sendBtn.disabled = false;
+        sendBtn.textContent = "Send my request →";
+        sendNote.textContent = "We reply with pricing and availability, usually within one working day.";
+      });
   });
 
   document.getElementById("rfq-reset").addEventListener("click", function () {
-    card.classList.remove("sent");
+    card.classList.remove("sent-auto", "sent-manual");
     card.scrollIntoView({ behavior: "smooth", block: "start" });
   });
 })();
