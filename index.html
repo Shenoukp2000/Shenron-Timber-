@@ -280,6 +280,17 @@
   .product-meta { margin-top: auto; display: flex; flex-wrap: wrap; gap: 8px; }
   .product-meta span { font-size: 0.78rem; background: var(--cream); border-radius: 6px; padding: 6px 10px; color: var(--forest); font-weight: 600; }
   .product-body .btn { align-self: flex-start; padding: 12px 22px; font-size: 0.9rem; }
+  .guide-strip {
+    margin-top: 26px; background: #fff; border: 1px solid #e4dcc9; border-left: 4px solid var(--gold);
+    border-radius: var(--radius); padding: 20px 24px; display: flex; flex-wrap: wrap;
+    align-items: center; justify-content: space-between; gap: 14px; text-decoration: none; color: inherit;
+  }
+  .guide-strip:hover { border-color: var(--leaf); border-left-color: var(--gold); }
+  .guide-strip .gs-text { flex: 1 1 320px; }
+  .guide-strip .eyebrow { margin-bottom: 4px; }
+  .guide-strip strong { display: block; font-family: Georgia, serif; font-size: 1.05rem; color: var(--forest-deep); margin-bottom: 4px; }
+  .guide-strip span.sub { font-size: 0.88rem; color: #5a6156; }
+  .guide-strip .gs-go { font-weight: 700; color: var(--forest); font-size: 0.9rem; white-space: nowrap; }
   .btn-forest { background: var(--forest); color: var(--cream); }
   .btn-forest:hover { background: var(--leaf); }
 
@@ -507,6 +518,7 @@
       <a href="#products">Products</a>
       <a href="#capacity">Capacity</a>
       <a href="#logistics">Delivery</a>
+      <a href="/articles/">Guides</a>
       <a href="#contact">Contact</a>
       <a class="cta" href="#rfq">Request a Quote</a>
     </nav>
@@ -520,6 +532,7 @@
     <a href="#products">Products</a>
     <a href="#capacity">Capacity</a>
     <a href="#logistics">Delivery</a>
+    <a href="/articles/">Guides</a>
     <a href="#contact">Contact</a>
     <a class="cta" href="#rfq">Request a Quote</a>
   </div>
@@ -651,6 +664,15 @@
       </article>
 
     </div>
+
+    <a class="guide-strip" href="/articles/acacia-mangium-fuelwood">
+      <span class="gs-text">
+        <span class="eyebrow">Buyer's guide</span>
+        <strong>Why we build our fuelwood business around Acacia mangium</strong>
+        <span class="sub">Calorific value, ash content and seasoning compared across the fuelwood species commonly burnt in Sri Lanka.</span>
+      </span>
+      <span class="gs-go">Read the guide →</span>
+    </a>
   </div>
 </section>
 
