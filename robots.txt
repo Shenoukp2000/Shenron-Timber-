@@ -1,4 +1,3 @@
+# Site temporarily under revision.
 User-agent: *
 Allow: /
-
-Sitemap: https://shenrontimber.com/sitemap.xml
